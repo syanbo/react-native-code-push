@@ -14,11 +14,13 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
   s.preserve_paths = '*.js'
   s.library        = 'z'
-  s.source_files = 'ios/CodePush/*.{h,m}'
+  s.source_files = 'ios/CodePush/*.{h,m}', 'ios/CodePush/DiffMatchPatch/*.{h,m,c}'
   s.public_header_files = ['ios/CodePush/CodePush.h']
+  s.requires_arc = false
+  s.requires_arc = 'ios/CodePush/*.{h,m}'
 
-  # Note: Even though there are copy/pasted versions of some of these dependencies in the repo, 
-  # we explicitly let CocoaPods pull in the versions below so all dependencies are resolved and 
+  # Note: Even though there are copy/pasted versions of some of these dependencies in the repo,
+  # we explicitly let CocoaPods pull in the versions below so all dependencies are resolved and
   # linked properly at a parent workspace level.
   s.dependency 'React'
   s.dependency 'SSZipArchive', '~> 2.1'
